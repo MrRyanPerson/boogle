@@ -1,0 +1,31 @@
+use_default_settings: 
+  engines:
+    keep_only:
+          # General results
+          - brave
+          - duckduckgo
+          - wikipedia
+          # Video, Image, News
+          - duckduckgo images
+          - duckduckgo videos
+          - duckduckgo news
+search:
+  # Moderate
+  safe_search: 1
+  # Use duck duck go to resolve autocomplete suggestions
+  autocomplete: "duckduckgo"
+  # Use duck duck go to resolve favicons
+  favicon_resolver: "duckduckgo"
+  # Allow access to json api
+  formats:
+    - html
+    - json
+  
+server:
+    secret_key: "superdupersecretkey"   # change this!
+    bind_address: "[::]"
+    # Whether or not to proxy images through the server (Uses lots of memory)
+    image_proxy: false
+    http_protocol_version: "1.1"
+    method: "GET"
+

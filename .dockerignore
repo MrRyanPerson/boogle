@@ -1,4 +1,9 @@
-.vscode
+# Exclude node_modules directory
+node_modules
 
-LICENSE
-README.md
+# Exclude environment files
+.env
+
+# Ignore build directories
+/build
+/dist
