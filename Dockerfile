@@ -12,4 +12,6 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD [ "node", "build" ]
+RUN npm install pm2 -g
+
+CMD ["pm2-runtime", "start", "build/index.js", "--name", "boogle"]

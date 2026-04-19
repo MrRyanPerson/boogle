@@ -1,4 +1,4 @@
-name: searxng
+name: boogle
 
 services:
   app:
