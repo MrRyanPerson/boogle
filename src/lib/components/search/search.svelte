@@ -25,7 +25,7 @@
 
 </script>
 <div class="w-full sm:w-1/2 flex items-center justify-center py-4 px-2">
-    <a class="flex items-center" href={resolve('/')}>
+    <a class="flex items-center" href={resolve('/')} aria-label="Home">
         <enhanced:img class="w-10 h-10 ml-4 mr-8" src={config.logo} alt="Logo" />
     </a>
     <form class="items-center inline-flex w-full gap-2 sm:gap-4" id="searchForm" action="/search" method="GET">
