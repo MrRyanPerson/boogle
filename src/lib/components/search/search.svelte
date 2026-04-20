@@ -8,14 +8,6 @@
 
     let loading = $state(false);
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        const query = document.getElementById("query").value.trim();
-        if (query) {
-            await goto(`/search?q=${encodeURIComponent(query)}`, {replaceState: true, invalidateAll: true});
-        }
-    }
-
 
     onMount(() => {
         if (typeof document.getElementById("query") !== 'undefined') {
@@ -36,7 +28,7 @@
     <a class="flex items-center" href={resolve('/')}>
         <enhanced:img class="w-10 h-10 ml-4 mr-8" src={config.logo} alt="Logo" />
     </a>
-    <form class="items-center inline-flex w-full gap-2 sm:gap-4" id="searchForm" on:submit|preventDefault={handleSubmit}>
+    <form class="items-center inline-flex w-full gap-2 sm:gap-4" id="searchForm" action="/search" method="GET">
         <label class="input rounded-2xl w-full">
         <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g
