@@ -1,14 +1,35 @@
 # Boogle
 ## What is it?
-![UI](./docs/_media/Screenshot%202026-04-20%20200815.png){width=512 height=232}
-## Usage
+![UI](./docs/_media/Screenshot%202026-04-20%20200815.png)
+
+Boogle is a custom user interface for the metasearch engine [SearXNG](https://searxng.org). It was built using sveltekit and docker. I created it because I thought it would be fun and I wanted to learn more about docker and production deployments.
+## Deployment
+For production usage you can start with docker compose:
 ``` bash
-#
 docker compose -f docker-compose.prod.yml up
 ```
-### Development
+This will start a local searxng instance. Be sure to change the url at ```caddy/prod/Caddyfile``` also set up a firewall to ensure no traffic is allowed to your server except for ports <strong>443</strong> (https) and <strong>80</strong> (http). 
+### Requirements
+From my testing I figured out Searxng uses upp less than 512MB of memory and the web ui uses up ~80MB so to be safe I would recomend a instance with 2vcpus and 1GB of ram, but you could probably get away with 512MB of ram.
+## Development
 ``` bash
-#
+# Runs on localhost
 docker compose -f docker-compose.yml up
 ```
 ## Configuration
+General configuration is located at:
+```
+src/lib/config.js
+```
+Searxng configuration is located at:
+```
+# change to searxng/.env before deployment
+searxng/.env.example
+```
+and
+```
+searxng/core-config/settings.yml
+```
+## Todo
+* Add news results
+* Fix the thing where after you submit on the form it takes forever to load
