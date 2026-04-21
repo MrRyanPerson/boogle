@@ -3,9 +3,7 @@ name: boogle
 services:
   app:
     container_name: web-ui
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/mrryanperson/boogle:main
     volumes:
       - ./logs:/app/logs
     networks:
