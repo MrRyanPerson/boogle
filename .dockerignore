@@ -7,3 +7,9 @@ node_modules
 # Ignore build directories
 build
 
+# Misc.
+docs
+.github
+.vscode
+README.md
+
