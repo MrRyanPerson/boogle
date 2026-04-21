@@ -5,7 +5,8 @@ export const config = {
     title: "Boogle",
     description: "Search engine ui built on top of searxng.",
     logo: Logo,
-    searxngUrl: "http://127.0.0.1:8080",
+    // You can use youre own searxng instance or the public one, but it's recommended to use your own for better performance and privacy.
+    searxngUrl: "http://searxng-core:8080",
     url: "https://boogle.ryan-he.org",
     author: "Ryan He, inbox@ryan-he.org",
     // Page Config

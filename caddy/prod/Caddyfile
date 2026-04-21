@@ -1,0 +1,3 @@
+boogle.ryan-he.org {
+	reverse_proxy web-ui:3000
+}
