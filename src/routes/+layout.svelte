@@ -2,6 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/logo.png';
 	import { config } from '$lib/config';
+	import { navigating } from '$app/stores';
 
 	let { children } = $props();
 </script>
@@ -21,4 +22,13 @@
 
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+{#if $navigating}
+  <div class="h-screen w-full flex items-center justify-center">
+	<div class="loading loading-bars loading-xl">
+   		Loading...
+	</div>
+  </div>
+{/if}
+
 {@render children()}

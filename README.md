@@ -38,3 +38,5 @@ btw the perfomance is limited by how fast the searxng instance can search.
 ## Todo
 * Add news results
 * Fix the thing where after you submit on the form it takes forever to load
+* ~~Fix the thing where after you submit on the form it takes forever to load~~
+* Javascript debounce + auto complete

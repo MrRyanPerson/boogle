@@ -7,7 +7,7 @@
     let { data } = $props();
 </script>
 
-<div class="flex items-center w-full">
+<div class="flex items-center w-full max-w-[100vw]">
     <div class="tabs tabs-box">
         {#if config.generalResultsEnabled}
         <label class="tab">
