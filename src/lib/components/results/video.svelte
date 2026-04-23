@@ -10,7 +10,7 @@
         <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Video Results</li>
         {#each videoResults.results as result}
             <li class="list-row">
-            <div><img class="size-32 rounded-box object-cover" loading="lazy" src={result.thumbnail} alt="Video thumbnail"/></div>
+            <div class="hidden sm:flex"><img class="size-32 rounded-box object-cover" loading="lazy" src={result.thumbnail} alt="Video thumbnail"/></div>
             <div>
             <div class="text-lg font-bold line-clamp-1"><a href={result.url}  rel="noopener noreferrer">{result.title}</a></div>
             <div class="text-xs font-semibold opacity-60 breadcrumbs">
