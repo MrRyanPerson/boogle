@@ -3,59 +3,76 @@ import type { PageServerLoad } from './$types';
 import { config } from '$lib/config';
 
 export const load: PageServerLoad = async ({ url }) => {
-	const query = url.searchParams.get('q');
-	if (!query) {
-		return { webResults: { results: [] }, imageResults: { results: [] }, videoResults: { results: [] }, error: null };
-	}
+    const query = url.searchParams.get('q');
+    if (!query) {
+        return {
+            webResults: { results: [] },
+            imageResults: { results: [] },
+            videoResults: { results: [] },
+            newsResults: { results: [] },
+            error: null
+        };
+    }
 
-	let response_web: any = { results: [] };
-	let response_image: any = { results: [] };
-	let response_video: any = { results: [] };
-	let error: string | null = null;
+    const encoded = encodeURIComponent(query);
 
-	try {
-		if (config.generalResultsEnabled) {
-			try {
-				const webResponse = await fetch(`${config.searxngUrl}/search?q=${encodeURIComponent(query)}&format=json`, { method: 'GET' });
-				if (!webResponse.ok) {
-					throw new Error(`Web search failed: ${webResponse.status} ${webResponse.statusText}`);
-				}
-				response_web = await webResponse.json();
-			} catch (err) {
-				console.error('Web search error:', err);
-				error = error || 'Failed to fetch web results';
-			}
-		}
+    // Build all enabled requests
+    const requests: Record<string, Promise<Response>> = {};
 
-		if (config.imageResultsEnabled) {
-			try {
-				const imageResponse = await fetch(`${config.searxngUrl}/search?q=${encodeURIComponent(query)}&format=json&categories=images`, { method: 'GET' });
-				if (!imageResponse.ok) {
-					throw new Error(`Image search failed: ${imageResponse.status} ${imageResponse.statusText}`);
-				}
-				response_image = await imageResponse.json();
-			} catch (err) {
-				console.error('Image search error:', err);
-				if (!error) error = 'Failed to fetch image results';
-			}
-		}
+    if (config.generalResultsEnabled) {
+        requests.web = fetch(`${config.searxngUrl}/search?q=${encoded}&format=json`);
+    }
+    if (config.imageResultsEnabled) {
+        requests.image = fetch(`${config.searxngUrl}/search?q=${encoded}&format=json&categories=images`);
+    }
+    if (config.videoResultsEnabled) {
+        requests.video = fetch(`${config.searxngUrl}/search?q=${encoded}&format=json&categories=videos`);
+    }
+    if (config.newsResultsEnabled) {
+        requests.news = fetch(`${config.searxngUrl}/search?q=${encoded}&format=json&categories=news`);
+    }
 
-		if (config.videoResultsEnabled) {
-			try {
-				const videoResponse = await fetch(`${config.searxngUrl}/search?q=${encodeURIComponent(query)}&format=json&categories=videos`, { method: 'GET' });
-				if (!videoResponse.ok) {
-					throw new Error(`Video search failed: ${videoResponse.status} ${videoResponse.statusText}`);
-				}
-				response_video = await videoResponse.json();
-			} catch (err) {
-				console.error('Video search error:', err);
-				if (!error) error = 'Failed to fetch video results';
-			}
-		}
-	} catch (err) {
-		console.error('Unexpected error during search:', err);
-		error = 'An unexpected error occurred during search';
-	}
+    // Execute all in parallel
+    const results = await Promise.allSettled(
+        Object.values(requests)
+    );
 
-	return { query, webResults: response_web, imageResults: response_image, videoResults: response_video, error };
+    const keys = Object.keys(requests);
+    let errorMsg: string | null = null;
+
+    // Parse results
+    const parsed: any = {
+        webResults: { results: [] },
+        imageResults: { results: [] },
+        videoResults: { results: [] },
+        newsResults: { results: [] }
+    };
+
+    results.forEach((res, i) => {
+        const key = keys[i];
+
+        if (res.status === 'fulfilled' && res.value.ok) {
+            // Successful fetch
+            parsed[`${key}Results`] = res.value.json();
+        } else {
+            // Failed fetch
+            console.error(`${key} search error:`, res);
+            if (!errorMsg) {
+                errorMsg = `Failed to fetch ${key} results`;
+            }
+        }
+    });
+
+    // Await JSON parsing for successful ones
+    for (const key of keys) {
+        if (parsed[`${key}Results`] instanceof Promise) {
+            parsed[`${key}Results`] = await parsed[`${key}Results`];
+        }
+    }
+
+    return {
+        query,
+        ...parsed,
+        error: errorMsg
+    };
 };

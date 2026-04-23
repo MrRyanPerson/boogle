@@ -2,13 +2,10 @@ use_default_settings:
   engines:
     keep_only:
           # General results
-          - google
           - duckduckgo
           - wikipedia
           
           # Video, Image, News
-          - google images
-          - google videos
           - duckduckgo images
           - duckduckgo videos
           - duckduckgo news

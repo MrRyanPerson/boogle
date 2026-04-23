@@ -13,6 +13,9 @@ This will start a local searxng instance. Be sure to change the url at ```caddy/
 From my testing I figured out Searxng uses upp less than 512MB of memory and the web ui uses up ~80MB so to be safe I would recomend a instance with 2vcpus and 1GB of ram, but you could probably get away with 512MB of ram. Also note that building the image needs 2gb of Ram because of image optimization.
 ## Development
 ``` bash
+# Install dependencies
+npm i
+
 # Runs on localhost (may take up to 15s to load dev server)
 docker compose -f docker-compose.yml up -d
 ```

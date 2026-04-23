@@ -13,5 +13,5 @@ export const config = {
     generalResultsEnabled: true,
     imageResultsEnabled: true,
     videoResultsEnabled: true,
-    newsResultsEnabled: false,
+    newsResultsEnabled: true,
 }

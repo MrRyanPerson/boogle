@@ -2,6 +2,7 @@
     import WebResults from '$lib/components/results/web.svelte';
     import ImageResults from '$lib/components/results/image.svelte';
     import VideoResults from '$lib/components/results/video.svelte';
+    import NewsResults from '$lib/components/results/news.svelte';
     import { config } from '$lib/config';
 
     let { data } = $props();
@@ -42,10 +43,12 @@
         {#if config.newsResultsEnabled}
         <label class="tab">
             <input type="radio" name="search_selector" />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 me-2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-4 me-2" viewBox="0 -960 960 960" fill="currentColor"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h440l200 200v440q0 33-23.5 56.5T760-120H200Zm0-80h560v-400H600v-160H200v560Zm80-80h400v-80H280v80Zm0-320h200v-80H280v80Zm0 160h400v-80H280v80Zm-80-320v160-160 560-560Z"/></svg>
             News
         </label>
-        <div class="tab-content bg-base-100 border-base-300 p-6">Tab content 3</div>
+        <div class="tab-content">
+            <NewsResults newsResults={data.newsResults} />
+        </div>
         {/if}
     </div>
 </div>
