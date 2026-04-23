@@ -16,7 +16,7 @@
                         <img class="rounded-box max-h-24 md:max-h-36 w-auto" src={webResults.infoboxes[0].img_src} alt={webResults.infoboxes[0].infobox}/>
                         <div class="w-full">
                             <p class="font-medium text-sm opacity-75">{webResults.infoboxes[0].content}</p>
-                            <a href={webResults.infoboxes[0].urls[0].url} target="_blank" rel="noopener noreferrer" class="my-4 btn btn-sm btn-dash sm:btn-ghost rounded-xl capitalize">
+                            <a href={webResults.infoboxes[0].urls[0].url}  rel="noopener noreferrer" class="my-4 btn btn-sm btn-dash sm:btn-ghost rounded-xl capitalize">
                                 <img src={`https://icons.duckduckgo.com/ip3/${new URL(webResults.infoboxes[0].urls[0].url).hostname}.ico`} alt={webResults.infoboxes[0].engine} class="size-3 sm:size-4 mr-1"/>
                                 <span>{webResults.infoboxes[0].engine}</span>
                             </a>
@@ -30,7 +30,7 @@
         <li class="list-row flex-col sm:flex-row items-start">
             <img class="size-5 sm:size-6 rounded-box mb-2 sm:mb-0" src={`https://icons.duckduckgo.com/ip3/${new URL(result.url).hostname}.ico`} alt="icon"/>
             <div class="w-full">
-                <a href={result.url} target="_blank" rel="noopener noreferrer" class="font-medium underline text-sm sm:text-lg block">
+                <a href={result.url}  rel="noopener noreferrer" class="font-medium underline text-sm sm:text-lg block">
                     {result.title}
                 </a>
                 <div class="breadcrumbs text-xs">

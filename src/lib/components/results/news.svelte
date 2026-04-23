@@ -13,7 +13,7 @@
         <li class="list-row flex-col sm:flex-row items-start">
             <img class="size-5 sm:size-6 rounded-box mb-2 sm:mb-0" src={`https://icons.duckduckgo.com/ip3/${new URL(result.url).hostname}.ico`} alt="icon"/>
             <div class="w-full">
-                <a href={result.url} title={result.title} target="_blank" rel="noopener noreferrer" class="font-medium underline text-sm sm:text-lg block">
+                <a href={result.url} title={result.title}  rel="noopener noreferrer" class="font-medium underline text-sm sm:text-lg block">
                     {result.title}
                 </a>
                 <div class="breadcrumbs text-xs">

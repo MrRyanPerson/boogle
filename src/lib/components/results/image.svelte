@@ -17,7 +17,7 @@
                         <img slot="thumbnail" loading="lazy" class="object-cover w-full max-h-40" src={result.thumbnail_src} alt="Thumbnail">
                         <img loading="lazy" src={result.img_src} alt={result.title} />
                     </Lightbox>
-                    <a href={result.url} target="_blank" rel="noopener noreferrer" class="p-2">
+                    <a href={result.url}  rel="noopener noreferrer" class="p-2">
                         <p class="text-sm font-medium line-clamp-2 hover:underline" title={result.title}>{result.title}</p>
                         <p class="text-xs opacity-60" title={result.url}>{new URL(result.url).hostname}</p>
                     </a>
