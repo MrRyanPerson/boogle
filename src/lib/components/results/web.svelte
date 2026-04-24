@@ -2,7 +2,7 @@
     let { webResults = {} } = $props();
 </script>
 
-<div class="w-full sm:w-3/4">
+<div class="w-full sm:w-3/4 overflow-auto-x md:overflow-hidden">
     {#if webResults.results.length === 0}
         <p class="text-center opacity-50">No results found.</p>
     {/if}
