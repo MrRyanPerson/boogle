@@ -42,7 +42,7 @@
             <path d="m21 21-4.3-4.3"></path>
             </g>
         </svg>
-        <input id="query" autocomplete="off" type="search" required name="q" placeholder="Search the Web..." />
+        <input id="query" class="font-medium" autocomplete="off" type="search" required name="q" placeholder="Search the Web..." />
         <kbd class="kbd kbd-sm hidden md:flex">ctrl</kbd>
         <kbd class="kbd kbd-sm hidden md:flex">K</kbd>
         </label>
