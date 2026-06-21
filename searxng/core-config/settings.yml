@@ -1,19 +1,7 @@
-use_default_settings: 
-  engines:
-    keep_only:
-          # General results
-          - duckduckgo
-          - wikipedia
-          
-          # Video, Image, News
-          - duckduckgo images
-          - duckduckgo videos
-          - duckduckgo news
+use_default_settings: True
 search:
   # Moderate
   safe_search: 1
-  # Use duck duck go to resolve autocomplete suggestions
-  autocomplete: "duckduckgo"
   # Use duck duck go to resolve favicons
   favicon_resolver: "duckduckgo"
   # Allow access to json api
