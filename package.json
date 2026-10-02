@@ -19,7 +19,7 @@
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@tailwindcss/vite": "^4.3.0",
 		"daisyui": "^5.7.28",
-		"svelte": "^5.57.0",
+		"svelte": "^5.57.1",
 		"svelte-check": "^4.6.0",
 		"svelte-lightbox": "^1.1.9",
 		"tailwindcss": "^4.3.0",
