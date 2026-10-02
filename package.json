@@ -16,14 +16,14 @@
 		"@sveltejs/adapter-node": "^5.5.5",
 		"@sveltejs/enhanced-img": "^0.11.0",
 		"@sveltejs/kit": "^2.70.3",
-		"@sveltejs/vite-plugin-svelte": "^7.3.0",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@tailwindcss/vite": "^4.3.0",
-		"daisyui": "^5.5.23",
+		"daisyui": "^5.7.28",
 		"svelte": "^5.57.0",
 		"svelte-check": "^4.6.0",
 		"svelte-lightbox": "^1.1.9",
 		"tailwindcss": "^4.3.0",
-		"typescript": "^6.0.3",
+		"typescript": "^7.0.2",
 		"vite": "^8.2.2"
 	}
 }
