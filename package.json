@@ -17,12 +17,12 @@
 		"@sveltejs/enhanced-img": "^1.0.0",
 		"@sveltejs/kit": "^2.70.3",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
-		"@tailwindcss/vite": "^4.3.0",
+		"@tailwindcss/vite": "^4.3.5",
 		"daisyui": "^5.7.47",
-		"svelte": "^5.57.0",
+		"svelte": "^5.57.3",
 		"svelte-check": "^4.6.0",
 		"svelte-lightbox": "^1.1.9",
-		"tailwindcss": "^4.3.0",
+		"tailwindcss": "^4.3.5",
 		"typescript": "^6.0.3",
 		"vite": "^8.3.2"
 	}
